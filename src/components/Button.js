@@ -6,15 +6,15 @@ class Button extends Component {
   // via this.context:
   // static contextType = LanguageContext;
 
-  renderCTAText = (text) => {
-    return text === 'english' ? 'Submit' : 'Voorleggen';
+  renderCTAText = (language) => {
+    return language === 'english' ? 'Submit' : 'Voorleggen';
   }
 
   renderButton = (color) => {
     return (
       <button className={`ui button ${color}`}>
         <LanguageContext.Consumer>
-          {text => this.renderCTAText(text)}
+          {({ language }) => this.renderCTAText(language)}
         </LanguageContext.Consumer>
       </button>
     );
